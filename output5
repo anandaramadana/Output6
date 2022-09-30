@@ -1,0 +1,68 @@
+----TABEL MAHASISWA----
+membuat tabel mahasiswa :
+->  CREATE TABLE tbl_mhs (
+    id_mhs INT,
+    id_prodi INT,
+    nama_mhs VARCHAR (50),
+    alamat_mhs VARCHAR (50)
+    )
+memasukkan isi tabel :
+->  INSERT INTO tbl_mhs (id_mhs, id_prodi, nama_mhs, alamat_mhs)
+    VALUES (1,2,'Ananda','Sidoarjo')
+->  INSERT INTO tbl_mhs (id_mhs, id_prodi, nama_mhs, alamat_mhs)
+    VALUES (2,1,'Rama','Bangkalan')
+->  INSERT INTO tbl_mhs (id_mhs, id_prodi, nama_mhs, alamat_mhs)
+    VALUES (3,1,'Ahmad','Surabaya')
+->  INSERT INTO tbl_mhs (id_mhs, id_prodi, nama_mhs, alamat_mhs)
+    VALUES (4,2,'Ayu','Gresik')
+menampilkan tabel :
+->  SELECT * FROM tbl_mhs
+mengurutkan tabel berdasarkan abjad awal dari nama mahasiswa :
+->  SELECT nama_mhs, alamat_mhs FROM tbl_mhs ORDER BY nama_mhs
+mengurutkan tabel berdasarkan abjad akhir dari nama mahasiswa :
+->  SELECT nama_mhs, alamat_mhs FROM tbl_mhs ORDER BY nama_mhs DESC
+menampilkan isi tabel dengan menyebutkan 1 alamat :
+->  SELECT nama_mhs, alamat_mhs 
+    FROM tbl_mhs 
+    WHERE alamat_mhs='Sidoarjo'
+    ORDER BY nama_mhs DESC 
+menampilkan isi tabel dengan menyebutkan kolom yang ingin ditampilkan :
+->  SELECT nama_mhs, alamat_mhs 
+    FROM tbl_mhs 
+    LIMIT 2 
+->  SELECT nama_mhs, alamat_mhs 
+    FROM tbl_mhs 
+    LIMIT 2,4
+
+----TABEL PRODI----
+membuat tabel prodi :
+->  CREATE TABLE tbl_prodi (
+    id_prodi INT,
+    nama_prodi VARCHAR (50),
+    ket_prodi VARCHAR (15)
+    )
+memasukkan isi tabel :
+->  INSERT INTO tbl_prodi (id_prodi, nama_prodi, ket_prodi)
+    VALUES (1,'Teknik Informatika','Aktif')
+->  INSERT INTO tbl_prodi (id_prodi, nama_prodi, ket_prodi)
+    VALUES (2,'Sistem Informasi','Aktif')
+menampilkan tabel :
+->  SELECT * FROM tbl_prodi
+menampilkan jumlah data pada tabel :
+->  SELECT COUNT(*)
+    FROM tbl_prodi
+
+----TAMBAHAN----
+menggabungkan kedua tabel :
+->  SELECT *
+    FROM tbl_mhs, tbl_prodi
+    WHERE tbl_mhs.id_prodi = tbl_prodi.id_prodi
+menggabungkan tabel dengan menampilkan kolom tertentu :
+->  SELECT nama_mhs, alamat_mhs, nama_prodi
+    FROM tbl_mhs, tbl_prodi
+    WHERE tbl_mhs.id_prodi = tbl_prodi.id_prodi
+menggabungkan kedua tabel dengan mengubah nama tabel lebih singkat :
+->  SELECT nama_mhs, alamat_mhs, nama_prodi
+    FROM tbl_mhs m, tbl_prodi p
+    WHERE m.id_prodi = p.id_prodi
+
